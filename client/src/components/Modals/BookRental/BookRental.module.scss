@@ -1,0 +1,12 @@
+.wrapper {
+  width: 650px;
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .idk {
+    color: #b02225;
+  }
+}

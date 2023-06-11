@@ -1,0 +1,87 @@
+.wrapper {
+  .connectButton {
+    font-weight: bold;
+    color: #fff;
+    background-color: #45b511ab;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .accountButton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: #fff;
+    .details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      background-color: #45b511ab;
+      border-radius: 12px;
+      padding: 12px 24px;
+      .walletAddress {
+        color: #fff;
+        font-size: 16px;
+      }
+    }
+
+    .popup {
+      position: absolute;
+      top: 60px;
+      right: -10px;
+      left: -10px;
+      background: #fff;
+      //   border: 1px solid #fff;
+      box-shadow: 0px 3px 18px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px;
+      text-align: start;
+
+      .item {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0 7px;
+        border-radius: 12px;
+        color: #000;
+
+        &:hover {
+          background-color: #dbdbdb5a;
+        }
+      }
+      .redItem {
+        height: 28px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0 7px;
+        border-radius: 12px;
+        color: #d34141;
+
+        img {
+          margin-right: 4px;
+        }
+
+        &:hover {
+          background-color: #dbdbdb5a;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  width: 660px;
+  margin-top: 40px;
+
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}

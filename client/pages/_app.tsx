@@ -1,27 +1,33 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import '@rainbow-me/rainbowkit/styles.css';
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import {
+  connectorsForWallets,
+  getDefaultWallets,
+  lightTheme,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
 import type { AppProps } from 'next/app';
 import { configureChains, createConfig, WagmiConfig } from 'wagmi';
 import { arbitrum, goerli, mainnet, optimism, polygon } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
+import MainLayout from '../src/layout/MainLayout';
+
+import { injectedWallet, metaMaskWallet } from '@rainbow-me/rainbowkit/wallets';
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [
-    mainnet,
-    polygon,
-    optimism,
-    arbitrum,
-    ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : []),
-  ],
-  [publicProvider()]
+  [mainnet, ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === 'true' ? [goerli] : [])],
+  [publicProvider()],
 );
 
-const { connectors } = getDefaultWallets({
-  appName: 'RainbowKit App',
-  projectId: 'YOUR_PROJECT_ID',
-  chains,
-});
+const projectId = '123';
+const appName = 'Crypto donut';
+
+const connectors = connectorsForWallets([
+  {
+    groupName: 'Recommended',
+    wallets: [injectedWallet({ chains }), metaMaskWallet({ projectId, chains })],
+  },
+]);
 
 const wagmiConfig = createConfig({
   autoConnect: true,
@@ -33,8 +39,18 @@ const wagmiConfig = createConfig({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains}>
-        <Component {...pageProps} />
+      <RainbowKitProvider
+        modalSize="compact"
+        chains={chains}
+        theme={lightTheme({
+          accentColorForeground: 'white',
+          borderRadius: 'large',
+          fontStack: 'system',
+          overlayBlur: 'small',
+        })}>
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
       </RainbowKitProvider>
     </WagmiConfig>
   );

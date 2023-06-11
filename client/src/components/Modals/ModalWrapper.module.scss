@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    font-size: 16px;
+    color: #000000;
+    font-weight: 700;
+    font-size: 26px;
+  }
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

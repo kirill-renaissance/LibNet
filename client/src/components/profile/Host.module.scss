@@ -1,0 +1,38 @@
+.wrapper {
+  padding-top: 50px;
+
+  .books {
+    margin-top: 40px;
+    margin-bottom: 60px;
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .greenButton {
+        border: 1px solid #45b511cc;
+        border-radius: 12px;
+        color: #45b511cc;
+        padding: 10px 24px;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+          background-color: #45b511cc;
+          color: #fff;
+        }
+      }
+      .redButton {
+        border: 1px solid #b02225;
+        border-radius: 12px;
+        color: #b02225;
+        padding: 10px 24px;
+        transition: all 0.15s ease-in-out;
+
+        &:hover {
+          background-color: #b02225;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

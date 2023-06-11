@@ -1,0 +1,39 @@
+.wrapper {
+  background-color: #45b511cc;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  transition: all 0.15s ease-in-out;
+  padding: 14px 20px;
+
+  p {
+    margin-right: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    background-color: darken(#45b511cc, 10%);
+
+    color: darken(#fff, 10%);
+    cursor: not-allowed;
+    &:hover {
+      transform: scale(1);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+}
